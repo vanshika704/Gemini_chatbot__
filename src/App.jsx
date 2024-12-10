@@ -1,32 +1,23 @@
 
 import { useState } from "react";
-import axios from "axios";
 
+import { GoogleGenerativeAI } from "@google/generative-ai";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [botResponse, setBotResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const genAI = new GoogleGenerativeAI(""); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userInput.trim()) return;
     setIsLoading(true);
-    try {
-      const response = await axios.post(
-        "https://generativelanguage.googleapis.com/v1beta2/models/gemini-pro:generateText",
-        {
-          prompt: userInput,
-          temperature: 0.7,
-          maxOutputTokens: 200,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.REACT_APP_API_KEY}`, // Use environment variables for the API key
-          },
-        }
-      );
-      setBotResponse(response.data?.candidates[0]?.output || "No response from API.");
+    try{
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const result = await model.generateContent(userInput);
+      const generatedText = result.response.text();
+
+      setBotResponse(generatedText);
+
     } catch (error) {
       console.error("Error:", error);
       setBotResponse("An error occurred. Please try again.");

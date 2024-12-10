@@ -65,7 +65,7 @@ const styles = {
   container: {
     fontFamily: "'Arial', sans-serif",
     maxWidth: "500px",
-    margin: "50px auto",
+    margin: "150px auto",
     padding: "20px",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",

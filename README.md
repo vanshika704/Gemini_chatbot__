@@ -1,2 +1,2 @@
 # GEMINI Chatbot
-![Screenshot (436)](https://github.com/user-attachments/assets/327a30f8-fe8d-4a55-baf3-0c00010b7d1f)
+![Screenshot (438)](https://github.com/user-attachments/assets/d56ab6c8-9e18-4176-8990-876100dded87)

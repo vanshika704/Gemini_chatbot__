@@ -164,7 +164,7 @@ function App() {
         backgroundColor: "#6D6E6F1F",
       }}
     >
-      {/* Header */}
+      
       <header
         style={{
           backgroundColor: "#10a37f",
